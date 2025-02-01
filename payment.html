@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدفع</title>
+    <link rel="stylesheet" href="../css/payment.css">
+</head>
+<body>
+    <!-- رأس الصفحة -->
+    <div class="header">
+        <h1>الدفع</h1>
+    </div>
+
+    <!-- تفاصيل التذكرة -->
+    <div class="container ticket-details">
+        <h2>تفاصيل التذكرة المختارة</h2>
+        <p>اسم التذكرة: <span id="ticket-name">---</span></p>
+        <p>السعر: <span id="ticket-price">---</span></p>
+        <p id="ticket-description">---</p>
+    </div>
+
+    <!-- نموذج الدفع -->
+    <div class="container payment-form">
+        <h2>خيارات الدفع</h2>
+        <form action="success.html" method="get">
+            <input type="text" name="card-number" placeholder="رقم البطاقة" required>
+            <input type="text" name="expiry-date" placeholder="تاريخ الانتهاء (MM/YY)" required>
+            <input type="text" name="cvv" placeholder="CVV" required>
+            <button type="submit" class="btn">إتمام الدفع</button>
+        </form>
+    </div>
+
+    <!-- زر العودة -->
+    <div class="back-button">
+        <a href="../home.html" class="btn">العودة إلى الصفحة الرئيسية</a>
+    </div>
+
+    <!-- إضافة JavaScript -->
+    <script>
+        // قراءة نوع التذكرة من الرابط
+        const params = new URLSearchParams(window.location.search);
+        const ticketType = params.get("ticket");
+
+        // المراجع للعناصر في الصفحة
+        const ticketNameElement = document.getElementById("ticket-name");
+        const ticketPriceElement = document.getElementById("ticket-price");
+        const ticketDescriptionElement = document.getElementById("ticket-description");
+
+        // تحديد تفاصيل التذكرة بناءً على النوع
+        if (ticketType === "2hours") {
+            ticketNameElement.textContent = "تذكرة ساعتين";
+            ticketPriceElement.textContent = "4 ر.س";
+            ticketDescriptionElement.textContent = "توفر عدد غير محدود من الرحلات لمدة ساعتين بعد التفعيل.";
+        } else if (ticketType === "3days") {
+            ticketNameElement.textContent = "تذكرة 3 أيام";
+            ticketPriceElement.textContent = "20 ر.س";
+            ticketDescriptionElement.textContent = "توفر عدد غير محدود من الرحلات لمدة 3 أيام بعد التفعيل.";
+        } else if (ticketType === "week") {
+            ticketNameElement.textContent = "تذكرة أسبوع";
+            ticketPriceElement.textContent = "40 ر.س";
+            ticketDescriptionElement.textContent = "توفر عدد غير محدود من الرحلات لمدة أسبوع بعد التفعيل.";
+        } else if (ticketType === "month") {
+            ticketNameElement.textContent = "تذكرة شهر";
+            ticketPriceElement.textContent = "140 ر.س";
+            ticketDescriptionElement.textContent = "توفر عدد غير محدود من الرحلات لمدة شهر بعد التفعيل.";
+        } else {
+            // إذا لم تكن التذكرة موجودة
+            alert("تذكرة غير صالحة!");
+            window.location.href = "../home.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>إنشاء حساب</h2>
+        <form id="signupForm">
+            <label for="username">اسم المستخدم</label>
+            <input type="text" id="username" placeholder="أدخل اسم المستخدم" required>
+        
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+        
+            <label for="password">كلمة المرور</label>
+            <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+        
+            <label for="confirm-password">تأكيد كلمة المرور</label>
+            <input type="password" id="confirm-password" placeholder="أعد إدخال كلمة المرور" required>
+        
+            <button type="submit">إنشاء حساب</button>
+            <p id="error-message" style="color: red; display: none;"></p>
+        </form>
+    </div>
+
+    <!-- إضافة Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB1jy47bPjcBlr4Jg8hd63Sd-rbm9vtUH8",
+            authDomain: "rtis-database-37c28.firebaseapp.com",
+            databaseURL: "https://rtis-database-37c28-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "rtis-database-37c28",
+            storageBucket: "rtis-database-37c28.firebasestorage.app",
+            messagingSenderId: "521784594971",
+            appId: "1:521784594971:web:49a980925e27987adbdebe",
+            measurementId: "G-Y3THQQZ6WC"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirm-password").value.trim();
+
+            if (password !== confirmPassword) {
+                alert("كلمتا المرور غير متطابقتين!");
+                return;
+            }
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+
+                    return updateProfile(user, { displayName: username }).then(() => {
+                        alert("تم إنشاء الحساب بنجاح!");
+                        window.location.href = "Home.html";
+                    });
+                })
+                .catch((error) => {
+                    const errorMessage = document.getElementById("error-message");
+                    errorMessage.style.display = "block";
+
+                    // التحقق من نوع الخطأ وإظهار الرسالة المناسبة
+                    if (error.code === "auth/email-already-in-use") {
+                        errorMessage.textContent = "البريد الإلكتروني مستخدم بالفعل.";
+                    } else if (error.code === "auth/weak-password") {
+                        errorMessage.textContent = "كلمة المرور ضعيفة جداً. يرجى اختيار كلمة مرور أقوى.";
+                    } else if (error.code === "auth/invalid-email") {
+                        errorMessage.textContent = "البريد الإلكتروني غير صالح. يرجى إدخال بريد إلكتروني صحيح.";
+                    } else {
+                        errorMessage.textContent = `خطأ: ${error.message}`;
+                    }
+
+                    console.error("خطأ أثناء إنشاء الحساب:", error.message);
+                });
+        });
+    </script>
+</body>
+</html>

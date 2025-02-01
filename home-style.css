@@ -1,0 +1,105 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    position: relative;
+}
+
+/* الخلفية البيضاوية */
+.oval-background {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background: url('../images/homepage.jpeg') no-repeat center center;
+    background-size: cover;
+    border-top-left-radius: 45%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    z-index: -1;
+}
+
+/* العنوان */
+.title {
+    margin-top: 100px;
+    font-size: 45px;
+    font-weight: bold;
+    color: #221D4D;
+}
+
+/* الحاوية الرئيسية */
+.menu-container {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px; /* المسافة بين المستطيلات */
+}
+
+/* تصميم المستطيلات */
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 200%;
+    max-width: 550px; /* عرض المستطيل */
+    height: 70px; /* ارتفاع المستطيل */
+    padding: 0 20px; /* حشو داخلي */
+    border-radius: 50px; /* تدوير الحواف */
+    background-color: #fff; /* لون الخلفية */
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    transition: transform 0.3s ease; /* تأثير الحركة */
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    
+}
+
+/* الأيقونات */
+.menu-btn img.icon {
+    width: 30px; /* عرض الأيقونة */
+    height: auto;
+    margin-right: 15px; /* مسافة بين الأيقونة والنص */
+}
+
+/* النص داخل المستطيل */
+.btn-text {
+    flex: 1; /* يجعل النص يأخذ المساحة المتبقية */
+    text-align: center; /* النص في المنتصف */
+    color: white;
+}
+
+/* تأثير عند تمرير الفأرة */
+.menu-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ألوان المستطيلات */
+.blue {
+    background-color: #66C7FF;
+}
+
+.purple {
+    background-color: #453E80;
+}
+
+.yellow {
+    background-color: #FDE585;
+}
+
+.orange {
+    background-color: #FFCA7D;
+    text-decoration: none;
+}

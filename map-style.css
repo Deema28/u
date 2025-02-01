@@ -1,0 +1,54 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.header {
+    background-color: #4c3c81;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.map-container {
+    margin: 20px auto;
+    max-width: 90%;
+    overflow: hidden;
+}
+
+.map {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.map:hover {
+    transform: scale(1.2); /* للتكبير عند التمرير */
+    cursor: zoom-out;
+}
+
+.buttons {
+    margin: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #4c3c81;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #342960;
+}

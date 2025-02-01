@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="background.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Riyadh Subways</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('images/background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .container h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+        }
+        .container button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Riyadh Subways</h1>
+        <button onclick="start()">Start</button>
+    </div>
+
+    <script>
+        function start() {
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <!-- ربط Firebase بالموقع -->
+    <script type="module">
+        // استيراد Firebase وخدمة Authentication
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
+        // إعداد Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyB1jy47bPjcBlr4Jg8hd63Sd-rbm9vtUH8",
+            authDomain: "rtis-database-37c28.firebaseapp.com",
+            databaseURL: "https://rtis-database-37c28-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "rtis-database-37c28",
+            storageBucket: "rtis-database-37c28.firebasestorage.app",
+            messagingSenderId: "521784594971",
+            appId: "1:521784594971:web:49a980925e27987adbdebe",
+            measurementId: "G-Y3THQQZ6WC"
+        };
+
+        // تهيئة Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        console.log("Firebase تم ربطه بنجاح!");
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    text-align: center;
+    color: #333;
+}
+
+/* العنوان الرئيسي */
+.title {
+    background-color: #66C7FF;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    font-size: 24px;
+}
+
+/* تفاصيل التذكرة */
+.ticket-details {
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: right;
+}
+
+.ticket-details p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.ticket-details span {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+/* نموذج الدفع */
+.payment-form {
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: right;
+}
+
+.payment-form h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #0056b3;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.payment-form .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #66C7FF;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.payment-form .btn:hover {
+    background-color: #0056b3;
+}
+
+/* زر العودة */
+.back-button {
+    margin-top: 45px
+}
+
+.back-button .btn {
+    background-color: #66C7FF;
+    color: white;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.back-button a:hover {
+    color: #0056b3;
+}

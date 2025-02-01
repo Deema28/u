@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدولة رحلات مترو الرياض</title>
+    <link rel="stylesheet" href="css/schedule-style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>جدولة رحلات مترو الرياض</h1>
+        <p>ابحث عن محطة معينة لمعرفة جدولها</p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="اكتب اسم المحطة هنا...">
+        <button onclick="filterStationDetails()">بحث</button>
+    </div>
+
+    <div id="stationDetails" class="hidden">
+        <h2>تفاصيل المحطة</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>اسم المحطة</th>
+                    <th>الخط</th>
+                    <th>وقت المغادرة</th>
+                    <th>وقت الوصول</th>
+                </tr>
+            </thead>
+            <tbody id="stationTableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="back-button">
+        <a href="home.html" class="btn">العودة إلى الصفحة الرئيسية</a>
+    </div>
+
+    <script src="js/filter.js"></script>
+</body>
+</html>
